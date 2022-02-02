@@ -7,7 +7,8 @@ exports.createBrowserWindow = () => {
         width: 1024,
         height: 768,
         icon: path.join(__dirname, "assets/icons/png/64x64.png"),
-        //titleBarStyle: 'hidden',
+        // title: 'Gtron View',
+        // titleBarStyle: 'hidden',
         //frame: false,
         backgroundColor: "#fff",
         webPreferences: {
