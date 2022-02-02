@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "build-x86": "electron-packager . gTronView --darwin --arch=x64 --icon=assets/icons/icon.icns --prune=true",
-    "build-arm": "electron-packager . gTronView --darwin --arch=arm64 --icon=assets/icons/icon.icns --prune=true"
+    "build-x86": "electron-packager . gTronView --darwin --arch=x64 --icon=assets/icons/icon.icns --prune=true --out=out",
+    "build-arm": "electron-packager . gTronView --darwin --arch=arm64 --icon=assets/icons/icon.icns --prune=true --out=out"
   },
   "devDependencies": {
     "electron": "^17.0.0",
