@@ -14,5 +14,4 @@ contextBridge.exposeInMainWorld(
 
 window.addEventListener("DOMContentLoaded", () => {
     // Add Functions
-    window.ipcRenderer = require('electron').ipcRenderer
 });
