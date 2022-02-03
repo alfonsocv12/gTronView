@@ -15,7 +15,7 @@ app.on("ready", () => {
     // Option 2: Load directly an URL if you don't need interface customization
     mainWindow.loadURL("https://mail.google.com/chat/u/0/#chat/welcome");
     mainWindow.webContents.on('did-finish-load', () => {
-        mainWindow.setTitle('Gtron view');
+        mainWindow.setTitle('gcview');
     })
 });
 

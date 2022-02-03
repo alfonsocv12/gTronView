@@ -1,12 +1,12 @@
 {
-  "name": "gTronView",
+  "name": "google-chat-webview",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "build-x86": "electron-packager . gTronView --darwin --arch=x64 --icon=assets/icons/icon.icns --prune=true --out=out",
-    "build-arm": "electron-packager . gTronView --darwin --arch=arm64 --icon=assets/icons/icon.icns --prune=true --out=out"
+    "build-x86": "electron-packager . gcview --darwin --arch=x64 --icon=assets/icons/iconCustom.icns --prune=true --out=out --overwrite",
+    "build-arm": "electron-packager . gcview --darwin --arch=arm64 --icon=assets/icons/iconCustom.icns --prune=true --out=out --overwrite"
   },
   "devDependencies": {
     "electron": "^17.0.0",
