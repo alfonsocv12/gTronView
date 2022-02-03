@@ -1,6 +1,7 @@
 // Electron
-const { app, Menu, ipcMain } = require("electron");
+const { app, Menu, ipcMain, Notification } = require("electron");
 const remoteMain = require("@electron/remote/main");
+const { getDoNotDisturb } = require('electron-notification-state');
 remoteMain.initialize();
 
 // const dockMenu = Menu.buildFromTemplate([
@@ -17,12 +18,14 @@ remoteMain.initialize();
 //     { label: 'New Command...' }
 // ])
 
-
 ipcMain.on('change-badge', (event, data) => {
     if (data !== '0' && data !== '') {
+        mainWindow.webContents.setAudioMuted(getDoNotDisturb());
         app.dock.setBadge(data);
+        app.dock.bounce();
     } else {
         app.dock.setBadge('');
+        notification_sended = ''
     }
 })
 
@@ -34,6 +37,8 @@ app.on("ready", (event, launchInfo) => {
     const window = require("./src/window");
     mainWindow = window.createBrowserWindow(app);
     remoteMain.enable(mainWindow.webContents);
+
+    mainWindow.webContents.setAudioMuted(getDoNotDisturb());
 
     app.dock.setBadge('');
 
@@ -52,8 +57,7 @@ app.on("ready", (event, launchInfo) => {
 
             notificationSpan.addEventListener('DOMSubtreeModified', () => {
                 window.api.topic.ipcRenderer.send(
-                    'change-badge',
-                    document.querySelector('.XU').innerText
+                    'change-badge', document.querySelector('.XU').innerText
                 );  
             })
         `);
