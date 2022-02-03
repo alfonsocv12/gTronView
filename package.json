@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "build-x86": "electron-packager . gcview --darwin --arch=x64 --icon=assets/icons/iconCustom.icns --prune=true --out=out --overwrite",
-    "build-arm": "electron-packager . gcview --darwin --arch=arm64 --icon=assets/icons/iconCustom.icns --prune=true --out=out --overwrite"
+    "build-x86": "electron-packager . gcview --darwin --arch=x64 --icon=assets/icons/icon.icns --prune=true --out=out --overwrite",
+    "build-arm": "electron-packager . gcview --darwin --arch=arm64 --icon=assets/icons/icon.icns --prune=true --out=out --overwrite"
   },
   "devDependencies": {
     "electron": "^17.0.0",

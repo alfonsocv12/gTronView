@@ -10,6 +10,8 @@ exports.createBrowserWindow = () => {
         // title: 'Gtron View',
         // titleBarStyle: 'hidden',
         //frame: false,
+        minWidth: 500,
+        minHeight: 700,
         backgroundColor: "#fff",
         webPreferences: {
             nativeWindowOpen: true,
