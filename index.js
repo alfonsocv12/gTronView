@@ -50,15 +50,17 @@ app.on("ready", (event, launchInfo) => {
         mainWindow.webContents.executeJavaScript(`
             const notificationSpan = document.querySelector('.XU');
 
-            window.api.topic.ipcRenderer.send(
-                'change-badge',
-                notificationSpan.innerText
-            );
+            function changeBadge() {
+                window.api.topic.ipcRenderer.send(
+                    'change-badge',
+                    notificationSpan.innerText
+                );
+            }
+
+            changeBadge()
 
             notificationSpan.addEventListener('DOMSubtreeModified', () => {
-                window.api.topic.ipcRenderer.send(
-                    'change-badge', document.querySelector('.XU').innerText
-                );  
+                changeBadge()
             })
         `);
 
@@ -67,6 +69,16 @@ app.on("ready", (event, launchInfo) => {
             console.log(result);
         })
     })
+
+    mainWindow.webContents.on('new-window', (e, url) => {
+        e.preventDefault();
+        require('electron').shell.openExternal(url);
+    })
+
+    // mainWindow.webContents.on('will-navigate', function (e, url) {
+    //     e.preventDefault();
+    //     require('electron').shell.openExternal(url);
+    // });
 });
 
 // Quit when all windows are closed.
